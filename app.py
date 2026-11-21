@@ -1,6 +1,6 @@
 
 import gradio as gr
-
+import os
 inventory = {
     101: {"item": "Computer", "quantity": 20, "condition": "Good"},
     102: {"item": "Chair", "quantity": 25, "condition": "Good"},
@@ -81,4 +81,4 @@ with gr.Blocks() as demo:
         update_message
     )
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 10000)))
